@@ -1,0 +1,54 @@
+@startuml MVC Диаграмма классов
+
+' Настройки
+skinparam class {
+    BackgroundColor White
+    ArrowColor #0078d7
+    BorderColor #0078d7
+}
+skinparam defaultFontName Arial
+
+' Классы
+class User {
+  +email: String
+  +password: String
+  +firstName: String
+  +lastName: String
+  +__construct(email, password, firstName, lastName)
+}
+
+class Users {
+  +collection: User[]
+  +__construct(users: User[] = null)
+}
+
+class Controller {
+  -users: Users
+  -view: MarkdownView
+  +__construct(filename: String)
+  +render(): String
+}
+
+class MarkdownView {
+  +render(userData: Map[]): String
+}
+
+' Отношения
+Users "1" *-- "*" User
+Controller o-- Users
+Controller o-- MarkdownView
+
+' Примечания
+note top of Controller
+  Получает данные от модели (Users)
+  и передает их представлению (MarkdownView)
+end note
+
+note right of MarkdownView
+  Форматирует данные в Markdown:
+  # Заголовки
+  - Списки
+  **Жирный текст**
+end note
+
+@enduml

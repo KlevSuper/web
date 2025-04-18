@@ -41,6 +41,7 @@
         
         .custom-list li {
             margin-bottom: 10px;
+            margin-top: 10px;
         }
         
         .custom-list a {
@@ -126,20 +127,18 @@
         <h1>Лабораторные работы</h1>
         <ul class="custom-list">
             <li><a href="lab1/MyProject/Classes/users.php" title="Классы и интерфейсы">Лаба 1 - Классы и интерфейсы</a></li>
-            <li class="dropdown">
-                <a href="lab2.html" title="Паттерны проектирования">Лаба 2 - Паттерны проектирования</a>
-                <div class="dropdown-content">
-                    <a href="/MyProject/lab2/src/RefactoringGuru/AbstractFactory/Conceptual/index.php">AbstractFactory</a>
-                   
-                </div>
+            <!--<li class="dropdown" id="lab2-dropdown">-->
+                <a href="lab2.html"title="Паттерны проектирования">Лаба 2 - Паттерны проектирования<br></a>
+                <!--<div class="dropdown-content">-->
+                <!--</div>-->
             </li>
             <li class="dropdown">
                 <a href="lab3.html" title="Паттерн Модель-Представление-Контроллер">Лаба 3 - MVC</a>
-                <div class="dropdown-content">
-                    <a href="/MyProject/lab3/patterns/settings_use.php">1</a>
-                    <a href="/MyProject/lab3/patterns/factory_use.php">2</a>
-                    <a href="/MyProject/lab3/patterns/mvc_use.php">3</a>
-                </div>
+                <!--<div class="dropdown-content">-->
+                    <!--<a href="lab3/patterns/settings_use.php">I</a>-->
+                    <!--<a href="lab3/patterns/factory_use.php">II</a>-->
+                    <!--<a href="lab3/patterns/mvc_use.php">III</a>-->
+                <!--</div>-->
             </li>
             <li><a href="lab4.html">Лаба 4</a></li>
             <li><a href="lab5.html">Лаба 5</a></li>

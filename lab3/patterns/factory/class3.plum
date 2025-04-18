@@ -1,0 +1,43 @@
+@startuml
+namespace Factory {
+  class Router {
+    +{static} parse(string $url): mixed
+    +{abstract} render()
+  }
+}
+
+namespace Factory.Models {
+  class User {
+    +string $email
+    +string $password
+    +string $firstName
+    +string $lastName
+    +__construct()
+  }
+
+  class Collection {
+    +array $collection
+    +__construct(array $items = [])
+  }
+
+  class Users {
+    +__construct(?array $users = null)
+    +{static} createUser(): User
+    +render(): string
+  }
+}
+
+Factory.Router <|-- Factory.Models.Users
+Factory.Models.Users --|> Factory.Models.Collection
+Factory.Models.Collection *-- Factory.Models.User
+
+note top of Factory.Router
+  Абстрактный класс с методом parse()
+  и абстрактным render()
+end note
+
+note right of Factory.Models.Users
+  Реализует фабричный метод createUser()
+  и метод render() для вывода пользователей
+end note
+@enduml
