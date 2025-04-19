@@ -10,44 +10,14 @@ namespace RefactoringGuru\Iterator\Conceptual;
  */
 
 use Iterator;
-
-/**
- * PHP имеет встроенный интерфейс Итератора, который предоставляет очень
- * удобную интеграцию с циклами foreach. Вот как выглядит интерфейс:
- *
- * @link http://php.net/manual/ru/class.iterator.php
- *
- *     interface Iterator extends Traversable {
- *         // Возврат текущего элемента
- *         public function current();
- *
- *         // Переход к следующему элементу
- *         public function next();
- *
- *         // Возврат ключа текущего элемента
- *         public function key();
- *
- *         // Проверяет корректность текущей позиции
- *         public function valid();
- *
- *         // Перемотка Итератора к первому элементу
- *         public function rewind();
- *     }
- *
- * Также есть встроенный интерфейс для коллекций:
- *
- * @link http://php.net/manual/ru/class.iteratoraggregate.php
- *
- *     interface IteratorAggregate extends Traversable {
- *         public getIterator(): Traversable;
- *     }
- */
+use IteratorAggregate;
+use Traversable;
 
 /**
  * Конкретные Итераторы реализуют различные алгоритмы обхода. Эти классы
  * постоянно хранят текущее положение обхода.
  */
-class AlphabeticalOrderIterator implements \Iterator
+class AlphabeticalOrderIterator implements Iterator
 {
     /**
      * @var WordsCollection
@@ -59,42 +29,42 @@ class AlphabeticalOrderIterator implements \Iterator
      * множество других полей для хранения состояния итерации, особенно когда он
      * должен работать с определённым типом коллекции.
      */
-    private $position = 0;
+    private int $position = 0;
 
     /**
      * @var bool Эта переменная указывает направление обхода.
      */
-    private $reverse = false;
+    private bool $reverse = false;
 
-    public function __construct($collection, $reverse = false)
+    public function __construct(WordsCollection $collection, bool $reverse = false)
     {
         $this->collection = $collection;
         $this->reverse = $reverse;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = $this->reverse 
             ? count($this->collection->getItems()) - 1 
             : 0;
     }
 
-    public function current()
+    public function current(): mixed
     {
         return $this->collection->getItems()[$this->position];
     }
 
-    public function key()
+    public function key(): int
     {
         return $this->position;
     }
 
-    public function next()
+    public function next(): void
     {
         $this->position = $this->position + ($this->reverse ? -1 : 1);
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->collection->getItems()[$this->position]);
     }
@@ -104,26 +74,26 @@ class AlphabeticalOrderIterator implements \Iterator
  * Конкретные Коллекции предоставляют один или несколько методов для
  * получения новых экземпляров итератора, совместимых с классом коллекции.
  */
-class WordsCollection implements \IteratorAggregate
+class WordsCollection implements IteratorAggregate
 {
-    private $items = [];
+    private array $items = [];
 
-    public function getItems()
+    public function getItems(): array
     {
         return $this->items;
     }
 
-    public function addItem($item)
+    public function addItem(mixed $item): void
     {
         $this->items[] = $item;
     }
 
-    public function getIterator(): Iterator
+    public function getIterator(): Traversable
     {
         return new AlphabeticalOrderIterator($this);
     }
 
-    public function getReverseIterator(): Iterator
+    public function getReverseIterator(): Traversable
     {
         return new AlphabeticalOrderIterator($this, true);
     }
