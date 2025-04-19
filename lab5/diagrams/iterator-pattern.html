@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator Pattern - Лабораторная работа №5</title>
+    <style>
+        :root {
+            --primary-color: #4a6da7;
+            --secondary-color: #5d93bb;
+            --accent-color: #f0ad4e;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --border-color: #ddd;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        .diagram-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid var(--border-color);
+        }
+        
+        .description {
+            margin-bottom: 30px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        pre {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .implementation {
+            margin-top: 40px;
+        }
+        
+        .implementation h3 {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <a href="../../lab5.php" class="back-link">← Вернуться к Лабораторной работе №5</a>
+    
+    <h1>Паттерн "Итератор" (Iterator Pattern)</h1>
+    
+    <div class="description">
+        <p>Итератор — это поведенческий паттерн проектирования, который даёт возможность последовательно обходить элементы составных объектов, не раскрывая их внутреннего представления.</p>
+        <p>В PHP итераторы реализуются через интерфейсы <code>Iterator</code> и <code>IteratorAggregate</code> из стандартной библиотеки SPL (Standard PHP Library).</p>
+    </div>
+    
+    <div class="diagram-container">
+        <h2>Диаграмма классов</h2>
+        <img src="Iterator Pattern.png" alt="Диаграмма классов Iterator Pattern">
+    </div>
+    
+    <div class="implementation">
+        <h2>Задание 1: Реализация интерфейса Iterator</h2>
+        <p>В данном задании создан класс <code>NumbersSquared</code>, который реализует интерфейс <code>Iterator</code> для генерации последовательности квадратов чисел в заданном диапазоне.</p>
+        
+        <h3>Основные методы интерфейса Iterator:</h3>
+        <ul>
+            <li><code>rewind()</code> - перемещает указатель в начало коллекции</li>
+            <li><code>valid()</code> - проверяет, есть ли текущий элемент</li>
+            <li><code>current()</code> - возвращает текущий элемент</li>
+            <li><code>key()</code> - возвращает ключ текущего элемента</li>
+            <li><code>next()</code> - перемещает указатель на следующий элемент</li>
+        </ul>
+    </div>
+    
+    <div class="implementation">
+        <h2>Задание 2: Реализация интерфейса IteratorAggregate</h2>
+        <p>Во втором задании класс <code>NewsDB</code> был модифицирован для реализации интерфейса <code>IteratorAggregate</code>, что позволяет легко итерировать категории новостей.</p>
+        
+        <h3>Преимущества IteratorAggregate:</h3>
+        <ul>
+            <li>Упрощенная реализация - требуется только метод <code>getIterator()</code></li>
+            <li>Возможность использования стандартных итераторов, таких как <code>ArrayIterator</code></li>
+            <li>Удобный способ сделать класс итерируемым, не реализуя все методы интерфейса <code>Iterator</code></li>
+        </ul>
+    </div>
+</body>
+</html> 

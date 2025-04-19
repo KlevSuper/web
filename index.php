@@ -126,23 +126,18 @@
     <main>
         <h1>Лабораторные работы</h1>
         <ul class="custom-list">
-            <li><a href="lab1/MyProject/Classes/users.php" title="Классы и интерфейсы">Лаба 1 - Классы и интерфейсы</a></li>
+            <li><a href="users.php" title="Классы и интерфейсы">Лаба 1 - Классы и интерфейсы</a></li>
             <!--<li class="dropdown" id="lab2-dropdown">-->
-                <a href="lab2.html"title="Паттерны проектирования">Лаба 2 - Паттерны проектирования<br></a>
+                <a href="lab2.html" title="Паттерны проектирования">Лаба 2 - Паттерны проектирования<br></a>
                 <!--<div class="dropdown-content">-->
                 <!--</div>-->
-            </li>
+            <!--</li>-->
             <li class="dropdown">
                 <a href="lab3.html" title="Паттерн Модель-Представление-Контроллер">Лаба 3 - MVC</a>
-                <!--<div class="dropdown-content">-->
-                    <!--<a href="lab3/patterns/settings_use.php">I</a>-->
-                    <!--<a href="lab3/patterns/factory_use.php">II</a>-->
-                    <!--<a href="lab3/patterns/mvc_use.php">III</a>-->
-                <!--</div>-->
             </li>
-            <li><a href="lab4.html">Лаба 4</a></li>
-            <li><a href="lab5.html">Лаба 5</a></li>
-            <li><a href="lab6.html">Лаба 6</a></li>
+            <li><a href="news/news.php" title="Использование ООП с базой данных SQLite">Лаба 4 - Использование ООП с базой данных SQLite</a></li>
+            <li><a href="lab5.php" title="Standard PHP Library">Лаба 5 - Standard PHP Library</a></li>
+            <li><a href="lab6.html" title="Использование MVC фреймворка">Лаба 6 - Использование MVC фреймворка</a></li>
         </ul>
     </main>
 
@@ -154,10 +149,11 @@
     height: auto;
     opacity: 0.8;
     transition: transform 0.3s;
+    transform: scale(1.1);
     " alt="PHP логотип" >
-    
+
     <a href="https://img.plantuml.biz/plantuml/png/dLBDJW8n4ButsNUOn0j4u4B2WN0GFN4cnYEftR8qB2rfk-409E9LZpu8qHXHYBv2zusSPNzWqNXmczrclfdvvfkPlJ2MQXjDGezun8o5d59D9y12QWpCFGBuN58s3hIAf7-bGgNXPYGiprnA-rody5cpsKpHhjPgbe6jLiiZouJT2XjoS4zkuzRk9Rx3xmxF6jo7sxfrl8fNxjCz0ruRDExTgzl53-2-4Dt6Z-ujyM9SujZY-vwGqbjZDMKsKzpDp6l3TIx_7EPvr1BCICrwSgWgrKoLa9Rh8MKS-j6KwoInLq05Gy1jAIkjLguYwOIteM-ra46EXIeGiWpMOOgvCnpSQJ2kmWe632Tjsu32SiTWm9J43Y9cAqcLMifRAvYg1SLHUtckpxFKilYYtKC7MeK_ElY_gDgUxmzffqCjBQ-pgDVt0_R8mIuqU-INRNKMZSPnY4SkkFJnt_u6" target="_blank">
-        <img src="paha.png" alt="Иконка" class="corner-icon" title="beep-beep">
+        <img src="paha.png" alt="Иконка" class="corner-icon" title="хукаю">
     </a>
 
 </body>
